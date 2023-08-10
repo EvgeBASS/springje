@@ -1,9 +1,6 @@
 package or.exc.artname.dto
 
-import lombok.Data
 
-@Data
-class Taco {
-    private val name: String? = null
-    private val ingredients: List<Particle>? = null
-}
+data class Taco(
+        val name: String? = null,
+        val ingredients: List<Particle>? = null)

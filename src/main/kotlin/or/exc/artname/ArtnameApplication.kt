@@ -1,5 +1,6 @@
 package or.exc.artname
 
+import or.exc.artname.dto.Particle
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 

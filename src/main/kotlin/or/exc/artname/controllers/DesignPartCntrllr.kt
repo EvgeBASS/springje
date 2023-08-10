@@ -24,13 +24,13 @@ class DesignTacoController {
     @ModelAttribute
     fun addIngredientsToModel(model: Model) {
         val ingredients = listOf(
-                Particle("FLTO", "Flour Tortilla", Type.CARBON),
+                Particle("FLTO", "PolyM", Type.CARBON),
                 Particle("COTO", "Corn Tortilla", Type.HYDROGEN),
-                Particle("GRBF", "Ground Beef", Type.NITRO),
+                Particle("GRBF", "PhosAgro", Type.NITRO),
                 Particle("CARN", "Carnitas", Type.OXYGEN),
                 Particle("TMTO", "Diced Tomatoes", Type.NITRO),
                 Particle("LETC", "Lettuce", Type.HYDROGEN),
-                Particle("CHED", "Cheddar", Type.HYDROGEN),
+                Particle("CHED", "Polus", Type.CARBON),
                 Particle("JACK", "Monterrey Jack", Type.OXYGEN),
                 Particle("SLSA", "Salsa", Type.OXYGEN),
                 Particle("SRCR", "Sour Cream", Type.OXYGEN)
@@ -58,10 +58,9 @@ class DesignTacoController {
     }
 
     private fun filterByType(
-            ingredients: List<Particle>, type: Type): Iterable<Ingredient> {
-        return ingredients
-                .stream()
-                .filter(Predicate<Ingredient> { x: Ingredient -> x.getType().equals(type) })
-                .collect(Collectors.toList<Any>())
+            ingredients: List<Particle>, type: Type): Iterable<Particle> {
+        return ingredients.stream()
+                .filter{ x: Particle -> x.type==type }
+                .collect(Collectors.toList())
     }
 }
