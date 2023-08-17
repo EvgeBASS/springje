@@ -4,7 +4,7 @@ import lombok.Data
 
 
 @Data
-class TacoOrder {
+class OrderPart {
     private val deliveryName: String? = null
     private val deliveryStreet: String? = null
     private val deliveryCity: String? = null
@@ -13,9 +13,9 @@ class TacoOrder {
     private val ccNumber: String? = null
     private val ccExpiration: String? = null
     private val ccCVV: String? = null
-    private val tacos: MutableList<Taco> = arrayListOf()
+    private val parts: MutableList<Part> = arrayListOf()
 
-    fun addTaco(taco: Taco) {
-        tacos.add(taco)
+    fun addPart(part: Part) {
+        parts.add(part)
     }
 }

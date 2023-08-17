@@ -1,6 +1,6 @@
 package or.exc.artname.dto
 
 
-data class Taco(
+data class Part(
         val name: String? = null,
-        val ingredients: List<Particle>? = null)
+        val particles: List<Particle>? = null)

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Part Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<h1>Design your PART</h1>
+<img th:src="@{/images/arrow.png}"/>
+<form method="POST" th:object="${part}">
+    <div class="grid">
+        <div class="particles-group" id="hydrogens">
+            <h3>Hydrogens:</h3>
+            <div th:each="particle : ${hydrogen}">
+                <input th:field="*{particles}" type="checkbox"
+                       th:value="${particle.id}"/>
+                <span th:text="${particle.name}">particle</span><br/>
+            </div>
+        </div>
+        <div class="particles-group" id="carbons">
+            <h3>Carbons:</h3>
+            <div th:each="particle : ${carbon}">
+                <input th:field="*{particles}" type="checkbox"
+                       th:value="${particle.id}"/>
+                <span th:text="${particle.name}">particle</span><br/>
+            </div>
+        </div>
+        <div class="particles-group" id="nitros">
+            <h3>Nitros:</h3>
+            <div th:each="particle : ${nitro}">
+                <input th:field="*{particles}" type="checkbox"
+                       th:value="${particle.id}"/>
+                <span th:text="${particle.name}">particle</span><br/>
+            </div>
+        </div>
+        <div class="particles-group" id="oxygens">
+            <h3>Oxygens:</h3>
+            <div th:each="particle : ${oxygen}">
+                <input th:field="*{particles}" type="checkbox"
+                       th:value="${particle.id}"/>
+                <span th:text="${particle.name}">particle</span><br/>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Name Part:</h3>
+        <input type="text" th:field="*{name}"/>
+        <br/>
+        <button>Submit Part</button>
+    </div>
+</form>
+</body>
+</html>
