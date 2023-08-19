@@ -1,6 +1,5 @@
 package or.exc.artname.controllers
 
-import lombok.extern.slf4j.Slf4j
 import or.exc.artname.dto.OrderPart
 import or.exc.artname.dto.Part
 import or.exc.artname.dto.Particle
@@ -14,11 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.SessionAttributes
 import java.util.*
-import java.util.logging.Logger
 import java.util.stream.Collectors
 
 
-@Slf4j
 @Controller
 @RequestMapping("/design")
 @SessionAttributes("orderPart")
@@ -61,7 +58,9 @@ class DesignPartCntrllr {
     }
 
     private fun filterByType(
-            ingredients: List<Particle>, type: Type): Iterable<Particle> {
+            ingredients: List<Particle>,
+            type: Type
+    ): Iterable<Particle> {
         return ingredients.stream()
                 .filter{ x: Particle -> x.type==type }
                 .collect(Collectors.toList())
@@ -69,7 +68,8 @@ class DesignPartCntrllr {
 
     @PostMapping
     fun processTaco(part: Part,
-                    @ModelAttribute orderPart: OrderPart): String? {
+                    @ModelAttribute orderPart: OrderPart
+    ): String? {
         orderPart.addPart(part)
 
         log.info("Processing Part: {}", part)

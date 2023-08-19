@@ -1,19 +1,16 @@
 package or.exc.artname.dto
 
-import lombok.Data
 
+data class OrderPart(val deliveryName: String? = null,
+    var deliveryStreet: String? = null,
+    var deliveryCity: String? = null,
+    var deliveryState: String? = null,
+    var deliveryZip: String? = null,
+    var ccNumber: String? = null,
+    var ccExpiration: String? = null,
+    var ccCVV: String? = null,
+    var parts: MutableList<Part> = arrayListOf()) {
 
-@Data
-class OrderPart {
-    private val deliveryName: String? = null
-    private val deliveryStreet: String? = null
-    private val deliveryCity: String? = null
-    private val deliveryState: String? = null
-    private val deliveryZip: String? = null
-    private val ccNumber: String? = null
-    private val ccExpiration: String? = null
-    private val ccCVV: String? = null
-    private val parts: MutableList<Part> = arrayListOf()
 
     fun addPart(part: Part) {
         parts.add(part)
